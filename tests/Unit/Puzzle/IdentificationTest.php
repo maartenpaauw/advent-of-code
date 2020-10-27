@@ -3,7 +3,7 @@
 namespace Tests\Unit\Puzzle;
 
 use App\Puzzle\Identification;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class IdentificationTest extends TestCase
 {

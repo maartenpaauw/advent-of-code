@@ -3,7 +3,7 @@
 namespace Tests\Unit\Puzzle\Input;
 
 use App\Puzzle\Input\StringInput;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class StringInputTest extends TestCase
 {
