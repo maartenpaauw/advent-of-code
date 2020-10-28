@@ -3,11 +3,12 @@
 namespace Tests\Unit\Puzzle\Answer;
 
 use App\Puzzle\Answer\Answer;
-use App\Puzzle\Answer\StringAnswer;
+use App\Puzzle\Answer\IntegerAnswer;
 
-class StringAnswerTest extends AnswerTest {
+class IntegerAnswerTest extends AnswerTest
+{
     protected function answer(): Answer
     {
-        return new StringAnswer('1');
+        return new IntegerAnswer(1);
     }
 }

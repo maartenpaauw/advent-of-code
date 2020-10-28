@@ -13,7 +13,7 @@ abstract class AnswerTest extends TestCase
     public function it_should_return_the_answer_as_string(): void
     {
         // Arrange
-        $expectedAnswer = 'Hello world!';
+        $expectedAnswer = '1';
 
         // Act
         $answer = $this->answer();
