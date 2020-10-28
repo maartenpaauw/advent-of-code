@@ -8,12 +8,12 @@ use App\Puzzle\Solution\SolutionFactory;
 use Illuminate\Support\Carbon;
 use LaravelZero\Framework\Commands\Command;
 
-class SolvePuzzleCommand extends Command
+class AdventSolveCommand extends Command
 {
     /**
      * @var string
      */
-    protected $signature = 'puzzle:solve';
+    protected $signature = 'advent:solve';
 
     /**
      * @var string
