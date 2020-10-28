@@ -18,7 +18,7 @@ class AdventSolveCommand extends Command
     /**
      * @var string
      */
-    protected $description = 'This command will solve the given puzzle';
+    protected $description = 'Solve the given puzzle';
 
     /**
      * @var SolutionFactory
@@ -38,10 +38,10 @@ class AdventSolveCommand extends Command
         $this->carbon = $carbon;
     }
 
-    public function handle(): void
+    public function handle(): int
     {
         $year = $this->anticipate('For which year?', [2020], $this->carbon->year);
-        $day = $this->anticipate('For which day?', range(1, 25), $this->carbon->day);
+        $day = $this->anticipate('For which day?', range(1, 25), min($this->carbon->day, 25));
 
         try {
             $solution = $this->solutionFactory->create($year, $day);
@@ -52,8 +52,12 @@ class AdventSolveCommand extends Command
             $results = [[$puzzle->partOne(), $puzzle->partTwo()]];
 
             $this->table($headers, $results);
+
+            return 0;
         } catch (NoSolutionAvailableException $e) {
             $this->error($e->getMessage());
+
+            return 1;
         }
     }
 }
