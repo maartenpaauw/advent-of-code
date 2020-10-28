@@ -2,16 +2,16 @@
 
 namespace App\Puzzle;
 
-use App\Puzzle\Solution\Solution;
+use App\Puzzle\Solution\SolutionContract;
 
 class Puzzle
 {
     /**
-     * @var Solution
+     * @var SolutionContract
      */
     private $solution;
 
-    public function __construct(Solution $solution)
+    public function __construct(SolutionContract $solution)
     {
         $this->solution = $solution;
     }

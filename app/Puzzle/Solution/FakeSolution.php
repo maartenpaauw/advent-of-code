@@ -6,7 +6,7 @@ use App\Puzzle\Answer\Answer;
 use App\Puzzle\Answer\StringAnswer;
 use App\Puzzle\Input\Input;
 
-class FakeSolution implements Solution
+class FakeSolution implements SolutionContract
 {
     /**
      * @var Input
