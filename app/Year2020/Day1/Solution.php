@@ -5,9 +5,9 @@ namespace App\Year2020\Day1;
 use App\Puzzle\Answer\Answer;
 use App\Puzzle\Answer\StringAnswer;
 use App\Puzzle\Input\Input;
-use App\Puzzle\Solution\Solution;
+use App\Puzzle\Solution\SolutionContract;
 
-class DayOne implements Solution
+class Solution implements SolutionContract
 {
     /**
      * @var Input
