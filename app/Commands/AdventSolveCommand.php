@@ -2,9 +2,10 @@
 
 namespace App\Commands;
 
+use App\Puzzle\Identification\Identification;
 use App\Puzzle\Puzzle;
 use App\Puzzle\Solution\NoSolutionAvailableException;
-use App\Puzzle\Solution\SolutionFactory;
+use App\Puzzle\Solution\SolutionList;
 use Illuminate\Support\Carbon;
 use LaravelZero\Framework\Commands\Command;
 
@@ -21,20 +22,20 @@ class AdventSolveCommand extends Command
     protected $description = 'Solve the given puzzle';
 
     /**
-     * @var SolutionFactory
+     * @var SolutionList
      */
-    private $solutionFactory;
+    private $solutionList;
 
     /**
      * @var Carbon
      */
     private $carbon;
 
-    public function __construct(SolutionFactory $solutionFactory, Carbon $carbon)
+    public function __construct(SolutionList $solutionList, Carbon $carbon)
     {
         parent::__construct();
 
-        $this->solutionFactory = $solutionFactory;
+        $this->solutionList = $solutionList;
         $this->carbon = $carbon;
     }
 
@@ -44,8 +45,8 @@ class AdventSolveCommand extends Command
         $day = $this->anticipate('For which day?', range(1, 25), min($this->carbon->day, 25));
 
         try {
-            $solution = $this->solutionFactory->create($year, $day);
-
+            $identification = new Identification($year, $day);
+            $solution = $this->solutionList->get($identification);
             $puzzle = new Puzzle($solution);
 
             $headers = ['Part 1', 'Part 2'];

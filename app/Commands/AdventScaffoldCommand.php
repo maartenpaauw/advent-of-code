@@ -2,6 +2,8 @@
 
 namespace App\Commands;
 
+use App\Puzzle\Identification\ClassIdentification;
+use App\Puzzle\Identification\Identification;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
@@ -36,7 +38,7 @@ class AdventScaffoldCommand extends Command
         $days = new Collection(range(1, 25));
 
         $days->each(function (int $day) use ($year) {
-            $name = sprintf('Year%s/Day%d/Solution', $year, $day);
+            $name = new ClassIdentification(new Identification($year, $day));
             $this->callSilent('advent:generate', ['name' => $name]);
         });
 

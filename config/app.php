@@ -53,6 +53,8 @@ return [
     |
     */
 
-    'providers' => [],
+    'providers' => [
+        \App\Providers\SolutionServiceProvider::class,
+    ],
 
 ];
