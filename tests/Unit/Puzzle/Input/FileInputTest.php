@@ -16,8 +16,7 @@ class FileInputTest extends TestCase
         Storage::fake();
         Storage::put('input/2020/1.txt', '(())');
 
-        $stringInput = new StringInput('input/2020/1.txt');
-        $fileInput = new FileInput($stringInput);
+        $fileInput = new FileInput('input/2020/1.txt');
 
         // Act
         $content = $fileInput->content();
