@@ -4,7 +4,7 @@ namespace App\Puzzle\Identification;
 
 use Stringable;
 
-class FileIdentification implements Stringable
+class InputIdentification implements Stringable
 {
     /**
      * @var Identification

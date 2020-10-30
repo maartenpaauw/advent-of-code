@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Puzzle\Identification\FileIdentification;
+use App\Puzzle\Identification\InputIdentification;
 use App\Puzzle\Identification\Identification;
 use App\Puzzle\Input\FileInput;
 use App\Puzzle\Solution\SolutionList;
@@ -17,7 +17,7 @@ class SolutionServiceProvider extends ServiceProvider
 
             $solutionList->add(
                 $identification = new Identification(2020, 1),
-                new \App\Year2020\Day1\Solution(new FileInput(new FileIdentification($identification)))
+                new \App\Year2020\Day1\Solution(new FileInput(new InputIdentification($identification)))
             );
 
             return $solutionList;
