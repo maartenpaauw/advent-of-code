@@ -4,7 +4,7 @@ namespace App\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class SolutionGenerateCommand extends GeneratorCommand
+class AdventGenerateCommand extends GeneratorCommand
 {
     /**
      * @var string
