@@ -9,6 +9,7 @@ use App\Puzzle\Identification\Identification;
 use App\Puzzle\Puzzle;
 use App\Puzzle\Solution\NoSolutionAvailableException;
 use App\Puzzle\Solution\SolutionList;
+use App\Puzzle\TablePuzzle;
 use Illuminate\Support\Carbon;
 use LaravelZero\Framework\Commands\Command;
 
@@ -63,11 +64,9 @@ class AdventSolveCommand extends Command
             $identification = new Identification($year, $day);
             $solution = $this->solutionList->get($identification);
             $puzzle = new Puzzle($solution);
+            $tablePuzzle = new TablePuzzle($puzzle);
 
-            $headers = ['Part 1', 'Part 2'];
-            $results = [[$puzzle->partOne(), $puzzle->partTwo()]];
-
-            $this->table($headers, $results);
+            $this->table($tablePuzzle->headers(), $tablePuzzle->rows());
 
             return 0;
         } catch (NoSolutionAvailableException $e) {

@@ -4,7 +4,7 @@ namespace App\Puzzle;
 
 use App\Puzzle\Solution\SolutionContract;
 
-class Puzzle
+class Puzzle implements PuzzleContract
 {
     /**
      * @var SolutionContract
