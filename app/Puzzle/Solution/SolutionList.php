@@ -24,12 +24,8 @@ class SolutionList
 
     public function get(Identification $identification): SolutionContract
     {
-        $solution = $this->solutions->get((string) $identification);
-
-        if (!$solution) {
+        return $this->solutions->get((string) $identification, function () use ($identification) {
             throw new NoSolutionAvailableException(sprintf('There is no solution available for the given identification: %s', $identification));
-        }
-
-        return $solution;
+        });
     }
 }

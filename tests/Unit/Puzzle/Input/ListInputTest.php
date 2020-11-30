@@ -12,7 +12,7 @@ class ListInputTest extends TestCase
     public function it_should_return_an_array_as_content(): void
     {
         // Arrange
-        $stringInput = new StringInput('a' . PHP_EOL . 'b');
+        $stringInput = new StringInput(sprintf('a%sb', PHP_EOL));
         $listInput = new ListInput($stringInput);
 
         // Act

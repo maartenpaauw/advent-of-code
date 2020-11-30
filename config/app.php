@@ -54,6 +54,7 @@ return [
     */
 
     'providers' => [
+        \App\Providers\AdventOfCodeServiceProvider::class,
         \App\Providers\ClientServiceProvider::class,
         \App\Providers\SolutionServiceProvider::class,
     ],

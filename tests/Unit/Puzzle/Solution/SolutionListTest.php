@@ -5,6 +5,7 @@ namespace Tests\Unit\Puzzle\Solution;
 use App\Puzzle\Identification\Identification;
 use App\Puzzle\Input\StringInput;
 use App\Puzzle\Solution\FakeSolution;
+use App\Puzzle\Solution\NoSolutionAvailableException;
 use App\Puzzle\Solution\SolutionList;
 use Tests\TestCase;
 
@@ -35,5 +36,20 @@ class SolutionListTest extends TestCase
 
         $this->assertEquals($secondSolution->first(), $secondReceived->first());
         $this->assertEquals($secondSolution->second(), $secondReceived->second());
+    }
+
+    /** @test */
+    public function it_should_throw_an_exception_when_the_solution_is_not_found(): void
+    {
+        // Assert
+        $this->expectException(NoSolutionAvailableException::class);
+        $this->expectExceptionMessage('There is no solution available for the given identification: 2020.26');
+
+        // Arrange
+        $solutionList = new SolutionList();
+        $identification = new Identification(2020, 26);
+
+        // Act
+        $solutionList->get($identification);
     }
 }

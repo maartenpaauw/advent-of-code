@@ -2,6 +2,9 @@
 
 namespace App\Commands;
 
+use App\AoC\Days\Days;
+use App\AoC\Days\LatestDay;
+use App\AoC\Years\Years;
 use App\Puzzle\Identification\Identification;
 use App\Puzzle\Puzzle;
 use App\Puzzle\Solution\NoSolutionAvailableException;
@@ -31,18 +34,30 @@ class AdventSolveCommand extends Command
      */
     private $carbon;
 
-    public function __construct(SolutionList $solutionList, Carbon $carbon)
+    /**
+     * @var Days
+     */
+    private $days;
+
+    /**
+     * @var Years
+     */
+    private $years;
+
+    public function __construct(SolutionList $solutionList, Carbon $carbon, Days $days, Years $years)
     {
         parent::__construct();
 
         $this->solutionList = $solutionList;
         $this->carbon = $carbon;
+        $this->days = $days;
+        $this->years = $years;
     }
 
     public function handle(): int
     {
-        $year = $this->anticipate('For which year?', [2020], $this->carbon->year);
-        $day = $this->anticipate('For which day?', range(1, 25), min($this->carbon->day, 25));
+        $year = $this->anticipate('For which year?', $this->years->toArray(), $this->carbon->year);
+        $day = $this->anticipate('For which day?', $this->days->toArray(), new LatestDay($this->carbon, $this->days));
 
         try {
             $identification = new Identification($year, $day);
