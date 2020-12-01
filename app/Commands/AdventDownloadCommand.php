@@ -61,7 +61,7 @@ class AdventDownloadCommand extends Command
     public function handle(): int
     {
         $year = $this->anticipate('For which year?', $this->years->toArray(), $this->carbon->year);
-        $day = $this->anticipate('For which day?', $this->days->toArray(), new LatestDay($this->carbon, $this->days));
+        $day = $this->anticipate('For which day?', $this->days->toArray(), (string) new LatestDay($this->carbon, $this->days));
 
         $identification = new Identification($year, $day);
         $request = new Request('GET', new InputUri(new RemoteIdentification($identification)));
