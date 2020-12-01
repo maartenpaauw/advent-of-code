@@ -9,7 +9,7 @@ class ListInput extends InputDecorator
      */
     private $delimiter;
 
-    public function __construct(Input $origin, string $delimiter = '/\n/')
+    public function __construct(Input $origin, string $delimiter = '\n')
     {
         parent::__construct($origin);
 
@@ -18,6 +18,6 @@ class ListInput extends InputDecorator
 
     public function content(): array
     {
-        return array_filter(preg_split($this->delimiter, $this->origin->content()));
+        return array_filter(preg_split(sprintf('/%s/', $this->delimiter), $this->origin->content()));
     }
 }

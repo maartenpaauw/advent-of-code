@@ -27,7 +27,7 @@ class ListInputTest extends TestCase
     {
         // Arrange
         $stringInput = new StringInput('a,b,c,d');
-        $listInput = new ListInput($stringInput, '/,/');
+        $listInput = new ListInput($stringInput, ',');
 
         // Act
         $content = $listInput->content();
