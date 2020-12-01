@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\AoC\SessionCookie;
 use App\AoC\Client;
+use App\AoC\SessionCookie;
 use GuzzleHttp\Cookie\CookieJar;
 use Illuminate\Support\ServiceProvider;
 use Psr\Http\Client\ClientInterface;

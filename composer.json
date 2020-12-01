@@ -1,7 +1,13 @@
 {
     "name": "laravel-zero/laravel-zero",
     "description": "The Laravel Zero Framework.",
-    "keywords": ["framework", "laravel", "laravel zero", "console", "cli"],
+    "keywords": [
+        "framework",
+        "laravel",
+        "laravel zero",
+        "console",
+        "cli"
+    ],
     "homepage": "https://laravel-zero.com",
     "type": "project",
     "license": "MIT",
@@ -22,6 +28,7 @@
         "psr/http-client": "^1.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
         "mockery/mockery": "^1.3.1",
         "phpunit/phpunit": "^8.5"
     },
@@ -42,5 +49,7 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "bin": ["advent-of-code"]
+    "bin": [
+        "advent-of-code"
+    ]
 }

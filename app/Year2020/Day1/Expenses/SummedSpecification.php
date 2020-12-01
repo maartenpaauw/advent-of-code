@@ -6,8 +6,8 @@ class SummedSpecification implements ExpenseSpecification
 {
     public function isSatisfiedBy(ExpenseContract ...$expenses): bool
     {
-        return array_sum(array_map(function (ExpenseContract $expense) {
+        return 2020 === array_sum(array_map(function (ExpenseContract $expense) {
             return $expense->value();
-        }, $expenses)) === 2020;
+        }, $expenses));
     }
 }

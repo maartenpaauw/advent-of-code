@@ -4,7 +4,6 @@ namespace App\Puzzle\Solution;
 
 use App\Puzzle\Answer\Answer;
 use App\Puzzle\Answer\StringAnswer;
-use App\Puzzle\Input\Input;
 
 class FakeSolution implements SolutionContract
 {

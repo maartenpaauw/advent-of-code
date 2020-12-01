@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Puzzle\Identification\InputIdentification;
 use App\Puzzle\Identification\Identification;
+use App\Puzzle\Identification\InputIdentification;
 use App\Puzzle\Input\FileInput;
 use App\Puzzle\Input\ListInput;
 use App\Puzzle\Solution\SolutionList;
