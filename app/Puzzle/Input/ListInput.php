@@ -18,6 +18,6 @@ class ListInput extends InputDecorator
 
     public function content(): array
     {
-        return preg_split($this->delimiter, $this->origin->content());
+        return array_filter(preg_split($this->delimiter, $this->origin->content()));
     }
 }

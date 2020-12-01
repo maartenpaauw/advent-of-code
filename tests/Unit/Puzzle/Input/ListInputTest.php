@@ -35,4 +35,18 @@ class ListInputTest extends TestCase
         // Assert
         $this->assertCount(4, $content);
     }
+
+    /** @test */
+    public function it_should_filter_out_null_values(): void
+    {
+        // Arrange
+        $stringInput = new StringInput(sprintf('a%sb%s', PHP_EOL, PHP_EOL));
+        $listInput = new ListInput($stringInput);
+
+        // Act
+        $content = $listInput->content();
+
+        // Assert
+        $this->assertCount(2, $content);
+    }
 }
