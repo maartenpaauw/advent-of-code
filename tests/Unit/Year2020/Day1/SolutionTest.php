@@ -2,10 +2,6 @@
 
 namespace Tests\Unit\Year2020\Day1;
 
-use App\Puzzle\Input\CollectionInput;
-use App\Puzzle\Input\CollectionInputAdapter;
-use App\Puzzle\Input\ListInput;
-use App\Puzzle\Input\StringInput;
 use App\Year2020\Day1\Solution;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
@@ -17,8 +13,7 @@ class SolutionTest extends TestCase
     {
         // Arrange
         $collection = new Collection([1721, 979, 366, 299, 675, 1456]);
-        $input = new CollectionInputAdapter($collection);
-        $solution = new Solution($input);
+        $solution = new Solution($collection);
 
         // Act
         $first = $solution->first();

@@ -8,16 +8,6 @@ use App\Puzzle\Input\Input;
 
 class FakeSolution implements SolutionContract
 {
-    /**
-     * @var Input
-     */
-    private $input;
-
-    public function __construct(Input $input)
-    {
-        $this->input = $input;
-    }
-
     public function first(): Answer
     {
         return new StringAnswer('1');

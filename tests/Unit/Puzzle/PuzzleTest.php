@@ -2,7 +2,6 @@
 
 namespace Tests\Unit\Puzzle;
 
-use App\Puzzle\Input\StringInput;
 use App\Puzzle\Puzzle;
 use App\Puzzle\Solution\FakeSolution;
 use Tests\TestCase;
@@ -13,8 +12,7 @@ class PuzzleTest extends TestCase
     public function it_should_return_the_correct_answers(): void
     {
         // Arrange
-        $stringInput = new StringInput('input');
-        $fakeSolution = new FakeSolution($stringInput);
+        $fakeSolution = new FakeSolution();
         $puzzle = new Puzzle($fakeSolution);
 
         // Act

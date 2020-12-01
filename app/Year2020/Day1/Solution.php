@@ -4,7 +4,6 @@ namespace App\Year2020\Day1;
 
 use App\Puzzle\Answer\Answer;
 use App\Puzzle\Answer\IntegerAnswer;
-use App\Puzzle\Input\Input;
 use App\Puzzle\Solution\SolutionContract;
 use App\Year2020\Day1\Expenses\Expense;
 use App\Year2020\Day1\Expenses\MultiplyExpenses;
@@ -18,12 +17,11 @@ class Solution implements SolutionContract
      */
     private $collection;
 
-    public function __construct(Input $input)
+    public function __construct(Collection $collection)
     {
-        $this->collection = $input->content()
-            ->map(function (int $entry) {
-                return new Expense($entry);
-            });
+        $this->collection = $collection->map(function (int $entry) {
+            return new Expense($entry);
+        });
     }
 
     public function first(): Answer

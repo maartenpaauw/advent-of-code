@@ -17,8 +17,7 @@ class TablePuzzleTest extends TestCase
 
     protected function setUp(): void
     {
-        $input = new StringInput('a');
-        $solution = new FakeSolution($input);
+        $solution = new FakeSolution();
         $puzzle = new Puzzle($solution);
 
         $this->tablePuzzle = new TablePuzzle($puzzle);

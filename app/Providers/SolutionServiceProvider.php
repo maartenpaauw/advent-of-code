@@ -4,10 +4,10 @@ namespace App\Providers;
 
 use App\Puzzle\Identification\InputIdentification;
 use App\Puzzle\Identification\Identification;
-use App\Puzzle\Input\CollectionInput;
 use App\Puzzle\Input\FileInput;
 use App\Puzzle\Input\ListInput;
 use App\Puzzle\Solution\SolutionList;
+use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 
 class SolutionServiceProvider extends ServiceProvider
@@ -19,7 +19,7 @@ class SolutionServiceProvider extends ServiceProvider
 
             $solutionList->add(
                 $identification = new Identification(2020, 1),
-                new \App\Year2020\Day1\Solution(new CollectionInput(new ListInput(new FileInput(new InputIdentification($identification)))))
+                new \App\Year2020\Day1\Solution(new Collection((new ListInput(new FileInput(new InputIdentification($identification))))->content()))
             );
 
             return $solutionList;

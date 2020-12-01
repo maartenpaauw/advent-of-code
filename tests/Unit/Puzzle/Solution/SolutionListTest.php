@@ -17,10 +17,10 @@ class SolutionListTest extends TestCase
         // Arrange
         $solutionList = new SolutionList();
 
-        $firstSolution = new FakeSolution(new StringInput('1'));
+        $firstSolution = new FakeSolution();
         $first = new Identification(2020, 1);
 
-        $secondSolution = new FakeSolution(new StringInput('2'));
+        $secondSolution = new FakeSolution();
         $second = new Identification(2020, 2);
 
         // Act
