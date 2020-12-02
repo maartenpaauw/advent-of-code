@@ -2,23 +2,22 @@
 
 namespace Tests\Unit\Year2020\Day2;
 
-use App\Year2020\Day2\AmountPolicy;
-use App\Year2020\Day2\Password;
 use App\Year2020\Day2\PasswordContract;
-use App\Year2020\Day2\PasswordPolicyRecord;
-use App\Year2020\Day2\PolicyContract;
+use App\Year2020\Day2\PasswordAmountPolicyRecord;
+use App\Year2020\Day2\PasswordPositionPolicyRecord;
+use App\Year2020\Day2\PositionPolicy;
 use Tests\TestCase;
 
-class PasswordPolicyRecordTest extends TestCase
+class PasswordPositionPolicyRecordTest extends TestCase
 {
     /**
-     * @var PasswordPolicyRecord
+     * @var PasswordAmountPolicyRecord
      */
     private $passwordPolicyRecord;
 
     protected function setUp(): void
     {
-        $this->passwordPolicyRecord = new PasswordPolicyRecord(new Password('secret'), new AmountPolicy(1, 3, 'e'));
+        $this->passwordPolicyRecord = new PasswordPositionPolicyRecord('1-3 e: secret');
     }
 
     /** @test */
@@ -38,6 +37,6 @@ class PasswordPolicyRecordTest extends TestCase
         $policy = $this->passwordPolicyRecord->policy();
 
         // Assert
-        $this->assertInstanceOf(PolicyContract::class, $policy);
+        $this->assertInstanceOf(PositionPolicy::class, $policy);
     }
 }

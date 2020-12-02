@@ -19,17 +19,8 @@ abstract class AbstractPolicy implements PolicyContract
      */
     protected $letter;
 
-    public function __construct(int $lowest, int $highest, string $letter)
+    public function __construct(string $policy)
     {
-        $this->first = $lowest;
-        $this->second = $highest;
-        $this->letter = $letter;
-    }
-
-    public static function create(string $value): PolicyContract
-    {
-        $explode = explode(' ', str_replace('-', ' ', $value));
-
-        return new static(...$explode);
+        [$this->first, $this->second, $this->letter] = preg_split('([- ])', $policy);
     }
 }

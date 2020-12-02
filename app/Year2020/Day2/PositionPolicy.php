@@ -8,9 +8,9 @@ class PositionPolicy extends AbstractPolicy
     {
         $characters = str_split($password);
 
-        $first = $characters[$this->first - 1] === $this->letter;
-        $second = $characters[$this->second - 1] === $this->letter;
+        $onFirst = $characters[$this->first - 1] === $this->letter;
+        $onSecond = $characters[$this->second - 1] === $this->letter;
 
-        return $first xor $second;
+        return $onFirst xor $onSecond;
     }
 }

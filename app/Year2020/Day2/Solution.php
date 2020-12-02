@@ -22,9 +22,7 @@ class Solution implements SolutionContract
     public function first(): Answer
     {
         $count = $this->collection->map(function (string $record) {
-            $explode = explode(': ', $record);
-
-            return new PasswordPolicyRecord(new Password($explode[1]), AmountPolicy::create($explode[0]));
+            return new PasswordAmountPolicyRecord($record);
         })->filter(function (PasswordPolicyRecord $record) {
             return $record->policy()->passes($record->password());
         })->count();
@@ -35,9 +33,7 @@ class Solution implements SolutionContract
     public function second(): Answer
     {
         $count = $this->collection->map(function (string $record) {
-            $explode = explode(': ', $record);
-
-            return new PasswordPolicyRecord(new Password($explode[1]), PositionPolicy::create($explode[0]));
+            return new PasswordPositionPolicyRecord($record);
         })->filter(function (PasswordPolicyRecord $record) {
             return $record->policy()->passes($record->password());
         })->count();
