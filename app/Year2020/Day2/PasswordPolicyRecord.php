@@ -2,27 +2,31 @@
 
 namespace App\Year2020\Day2;
 
-use Illuminate\Support\Collection;
-
 class PasswordPolicyRecord
 {
     /**
-     * @var Collection
+     * @var PasswordContract
      */
-    private $record;
+    private $password;
 
-    public function __construct(string $record)
+    /**
+     * @var PolicyContract
+     */
+    private $policy;
+
+    public function __construct(PasswordContract $password, PolicyContract $policy)
     {
-        $this->record = new Collection(explode(': ', $record));
+        $this->password = $password;
+        $this->policy = $policy;
     }
 
     public function password(): PasswordContract
     {
-        return new Password($this->record->last());
+        return $this->password;
     }
 
     public function policy(): PolicyContract
     {
-        return Policy::create($this->record->first());
+        return $this->policy;
     }
 }

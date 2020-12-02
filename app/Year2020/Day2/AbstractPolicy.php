@@ -2,27 +2,27 @@
 
 namespace App\Year2020\Day2;
 
-class Policy implements PolicyContract
+abstract class AbstractPolicy implements PolicyContract
 {
     /**
      * @var int
      */
-    private $lowest;
+    protected $first;
 
     /**
      * @var int
      */
-    private $highest;
+    protected $second;
 
     /**
      * @var string
      */
-    private $letter;
+    protected $letter;
 
     public function __construct(int $lowest, int $highest, string $letter)
     {
-        $this->lowest = $lowest;
-        $this->highest = $highest;
+        $this->first = $lowest;
+        $this->second = $highest;
         $this->letter = $letter;
     }
 
@@ -31,12 +31,5 @@ class Policy implements PolicyContract
         $explode = explode(' ', str_replace('-', ' ', $value));
 
         return new static(...$explode);
-    }
-
-    public function passes(PasswordContract $password): bool
-    {
-        $count = substr_count($password, $this->letter);
-
-        return  ($this->lowest <= $count) && ($count <= $this->highest);
     }
 }

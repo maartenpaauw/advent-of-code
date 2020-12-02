@@ -17,20 +17,32 @@ class Solution implements SolutionContract
 
     public function __construct(Collection $collection)
     {
-        $this->collection = $collection->map(function (string $record) {
-            return new PasswordPolicyRecord($record);
-        });
+        $this->collection = $collection;
     }
 
     public function first(): Answer
     {
-        return new IntegerAnswer($this->collection->filter(function (PasswordPolicyRecord $record) {
+        $count = $this->collection->map(function (string $record) {
+            $explode = explode(': ', $record);
+
+            return new PasswordPolicyRecord(new Password($explode[1]), AmountPolicy::create($explode[0]));
+        })->filter(function (PasswordPolicyRecord $record) {
             return $record->policy()->passes($record->password());
-        })->count());
+        })->count();
+
+        return new IntegerAnswer($count);
     }
 
     public function second(): Answer
     {
-        return new StringAnswer('—');
+        $count = $this->collection->map(function (string $record) {
+            $explode = explode(': ', $record);
+
+            return new PasswordPolicyRecord(new Password($explode[1]), PositionPolicy::create($explode[0]));
+        })->filter(function (PasswordPolicyRecord $record) {
+            return $record->policy()->passes($record->password());
+        })->count();
+
+        return new IntegerAnswer($count);
     }
 }

@@ -2,12 +2,14 @@
 
 namespace Tests\Unit\Year2020\Day2;
 
+use App\Year2020\Day2\AmountPolicy;
+use App\Year2020\Day2\Password;
 use App\Year2020\Day2\PasswordContract;
 use App\Year2020\Day2\PasswordPolicyRecord;
 use App\Year2020\Day2\PolicyContract;
 use Tests\TestCase;
 
-class PasswordPolicyTest extends TestCase
+class PasswordPolicyRecordTest extends TestCase
 {
     /**
      * @var PasswordPolicyRecord
@@ -16,7 +18,7 @@ class PasswordPolicyTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->passwordPolicyRecord = new PasswordPolicyRecord('1-3 a: abcde');
+        $this->passwordPolicyRecord = new PasswordPolicyRecord(new Password('secret'), new AmountPolicy(1, 3, 'e'));
     }
 
     /** @test */
