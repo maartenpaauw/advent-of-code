@@ -4,7 +4,6 @@ namespace App\Year2020\Day2;
 
 use App\Puzzle\Answer\Answer;
 use App\Puzzle\Answer\IntegerAnswer;
-use App\Puzzle\Answer\StringAnswer;
 use App\Puzzle\Solution\SolutionContract;
 use Illuminate\Support\Collection;
 
