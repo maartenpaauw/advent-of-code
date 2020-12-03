@@ -2,11 +2,8 @@
 
 namespace App\Providers;
 
-use App\AoC\Days\Days;
-use App\AoC\Years\Years;
 use App\Puzzle\Identification\Identification;
 use App\Puzzle\Identification\InputIdentification;
-use App\Puzzle\Identification\SolutionIdentification;
 use App\Puzzle\Input\FileInput;
 use App\Puzzle\Input\ListInput;
 use App\Puzzle\Solution\SolutionList;
@@ -20,24 +17,20 @@ class SolutionServiceProvider extends ServiceProvider
         $this->app->bind(SolutionList::class, function () {
             $solutionList = new SolutionList();
 
-            $years = $this->app->make(Years::class);
-            $days = $this->app->make(Days::class);
+            $solutionList->add(
+                $identification = new Identification(2020, 1),
+                new \App\Year2020\Day1\Solution(new Collection((new ListInput(new FileInput(new InputIdentification($identification))))->content()))
+            );
 
-            foreach ($years->toArray() as $year) {
-                foreach ($days->toArray() as $day) {
-                    $identification = new Identification($year, $day);
-                    $solution = (string) new SolutionIdentification($identification);
+            $solutionList->add(
+                $identification = new Identification(2020, 2),
+                new \App\Year2020\Day2\Solution(new Collection((new ListInput(new FileInput(new InputIdentification($identification))))->content()))
+            );
 
-                    if (class_exists($solution)) {
-                        $solution = new $solution(new Collection((new ListInput(new FileInput(new InputIdentification($identification))))->content()));
-
-                        $solutionList->add(
-                            $identification,
-                            $solution
-                        );
-                    }
-                }
-            }
+            $solutionList->add(
+                $identification = new Identification(2020, 3),
+                new \App\Year2020\Day3\Solution(new Collection((new ListInput(new FileInput(new InputIdentification($identification))))->content()))
+            );
 
             return $solutionList;
         });
