@@ -10,7 +10,7 @@ class PassportIdSpecification implements PassportSpecification
     public function isSatisfiedBy(PassportContract $passport): bool
     {
         try {
-            return preg_match('/^[0-9]{9}$/', $passport->passportId());
+            return preg_match('/^[0-9]{9}$/', $passport->id());
         } catch (FieldNotFoundException $e) {
             return false;
         }

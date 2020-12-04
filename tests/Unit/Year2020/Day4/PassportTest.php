@@ -35,7 +35,7 @@ class PassportTest extends TestCase
         $this->assertEquals('1937', $passport->birthYear());
         $this->assertEquals('2017', $passport->issueYear());
         $this->assertEquals('2020', $passport->expirationYear());
-        $this->assertEquals('860033327', $passport->passportId());
+        $this->assertEquals('860033327', $passport->id());
         $this->assertEquals('gry', $passport->eyeColor());
     }
 

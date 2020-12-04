@@ -7,6 +7,11 @@ interface PassportContract
     /**
      * @throws FieldNotFoundException
      */
+    public function id(): string;
+
+    /**
+     * @throws FieldNotFoundException
+     */
     public function birthYear(): int;
 
     /**
@@ -33,11 +38,6 @@ interface PassportContract
      * @throws FieldNotFoundException
      */
     public function eyeColor(): string;
-
-    /**
-     * @throws FieldNotFoundException
-     */
-    public function passportId(): string;
 
     /**
      * @throws FieldNotFoundException

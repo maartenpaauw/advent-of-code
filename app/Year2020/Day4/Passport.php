@@ -46,7 +46,7 @@ class Passport implements PassportContract
         return $this->value('ecl');
     }
 
-    public function passportId(): string
+    public function id(): string
     {
         return $this->value('pid');
     }
@@ -59,7 +59,7 @@ class Passport implements PassportContract
     private function value(string $key): string
     {
         $field = $this->fields->first(function (string $field) use ($key) {
-            return 0 === strpos($field, sprintf('%s:', $key));
+            return str_starts_with($field, sprintf('%s:', $key));
         }, function () {
             throw new FieldNotFoundException();
         });

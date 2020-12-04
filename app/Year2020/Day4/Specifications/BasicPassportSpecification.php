@@ -16,7 +16,7 @@ class BasicPassportSpecification implements PassportSpecification
             $passport->height();
             $passport->hairColor();
             $passport->eyeColor();
-            $passport->passportId();
+            $passport->id();
 
             return true;
         } catch (FieldNotFoundException $exception) {
