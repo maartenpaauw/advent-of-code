@@ -18,7 +18,15 @@ class EyeColorSpecificationTest extends TestCase
     {
         parent::setUp();
 
-        $this->eyeColorSpecification = new EyeColorSpecification();
+        $this->eyeColorSpecification = new EyeColorSpecification([
+            'amb',
+            'blu',
+            'brn',
+            'gry',
+            'grn',
+            'hzl',
+            'oth',
+        ]);
     }
 
     /** @test */

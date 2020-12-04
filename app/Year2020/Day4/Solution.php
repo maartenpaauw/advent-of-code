@@ -53,7 +53,7 @@ class Solution implements SolutionContract
                     new HeightSpecification(59, 76, 'in')
                 ),
                 new HairColorSpecification(),
-                new EyeColorSpecification(),
+                new EyeColorSpecification(['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']),
                 new PassportIdSpecification(),
                 new CountryIdSpecification()
             ))->isSatisfiedBy($passport);

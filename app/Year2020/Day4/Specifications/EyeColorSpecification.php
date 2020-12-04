@@ -7,20 +7,20 @@ use App\Year2020\Day4\PassportContract;
 
 class EyeColorSpecification implements PassportSpecification
 {
+    /**
+     * @var array
+     */
+    private $colors;
+
+    public function __construct(array $colors)
+    {
+        $this->colors = $colors;
+    }
+
     public function isSatisfiedBy(PassportContract $passport): bool
     {
         try {
-            $eyeColor = $passport->eyeColor();
-
-            return in_array($eyeColor, [
-                'amb',
-                'blu',
-                'brn',
-                'gry',
-                'grn',
-                'hzl',
-                'oth',
-            ]);
+            return in_array($passport->eyeColor(), $this->colors);
         } catch (FieldNotFoundException $e) {
             return false;
         }
