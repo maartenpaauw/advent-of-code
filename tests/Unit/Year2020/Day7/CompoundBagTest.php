@@ -23,8 +23,8 @@ class CompoundBagTest extends TestCase
     {
         // Arrange
         $olive = new CompoundBag('dark olive', 1);
-        $blue = new EmptyBag('faded blue');
-        $black = new EmptyBag('dotted black');
+        $blue = new EmptyBag('faded blue', 1);
+        $black = new EmptyBag('dotted black', 1);
 
         $olive->add($blue);
         $olive->add($black);
@@ -42,7 +42,7 @@ class CompoundBagTest extends TestCase
         // Arrange
         $olive = new CompoundBag('dark olive', 1);
         $blue = new CompoundBag('faded blue', 1);
-        $black = new EmptyBag('dotted black');
+        $black = new EmptyBag('dotted black', 1);
 
         $olive->add($blue);
         $blue->add($black);
@@ -59,9 +59,9 @@ class CompoundBagTest extends TestCase
     {
         // Arrange
         $olive = new CompoundBag('dark olive', 1);
-        $blue = new EmptyBag('faded blue');
-        $black = new EmptyBag('dotted black');
-        $plum = new EmptyBag('vibrant plum');
+        $blue = new EmptyBag('faded blue', 1);
+        $black = new EmptyBag('dotted black', 1);
+        $plum = new EmptyBag('vibrant plum', 1);
 
         $olive->add($blue);
         $olive->add($black);
@@ -79,8 +79,8 @@ class CompoundBagTest extends TestCase
         // Arranger
         $olive = new CompoundBag('dark olive', 1);
         $blue = new CompoundBag('faded blue', 1);
-        $black = new EmptyBag('dotted black');
-        $plum = new EmptyBag('vibrant plum');
+        $black = new EmptyBag('dotted black', 1);
+        $plum = new EmptyBag('vibrant plum', 1);
 
         $olive->add($blue);
         $blue->add($black);
@@ -90,5 +90,31 @@ class CompoundBagTest extends TestCase
 
         // Assert
         $this->assertFalse($canContain);
+    }
+
+    /** @test */
+    public function it_should_return_the_size_correctly(): void
+    {
+        // Arrange
+        $gold = new CompoundBag('shiny gold', 1);
+        $red = new CompoundBag('dark red', 2);
+        $orange = new CompoundBag('dark orange', 2);
+        $yellow = new CompoundBag('dark yellow', 2);
+        $green = new CompoundBag('dark green', 2);
+        $blue = new CompoundBag('dark blue', 2);
+        $violet = new EmptyBag('dark violet', 2);
+
+        $gold->add($red);
+        $red->add($orange);
+        $orange->add($yellow);
+        $yellow->add($green);
+        $green->add($blue);
+        $blue->add($violet);
+
+        // Act
+        $size = $gold->size();
+
+        // Assert
+        $this->assertEquals(127, $size);
     }
 }

@@ -16,7 +16,7 @@ class EmptyBagTest extends TestCase
     {
         parent::setUp();
 
-        $this->blue = new EmptyBag('faded blue');
+        $this->blue = new EmptyBag('faded blue', 10);
     }
 
     /** @test */
@@ -30,14 +30,14 @@ class EmptyBagTest extends TestCase
     public function it_should_return_the_size_correctly(): void
     {
         // Assert
-        $this->assertEquals(0, $this->blue->size());
+        $this->assertEquals(10, $this->blue->size());
     }
 
     /** @test */
     public function it_should_return_false_for_any_given_bag(): void
     {
         // Arrange
-        $yellow = new EmptyBag('muted yellow');
+        $yellow = new EmptyBag('muted yellow', 1);
 
         // Act
         $canContain = $this->blue->canContain($yellow);
