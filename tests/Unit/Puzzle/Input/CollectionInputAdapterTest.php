@@ -12,13 +12,13 @@ class CollectionInputAdapterTest extends TestCase
     public function it_should_return_a_collection_instance(): void
     {
         // Arrange
-        $collection = new Collection();
+        $collection = new Collection([1, 2, 3, 4, 5]);
         $input = new CollectionInputAdapter($collection);
 
         // Act
         $content = $input->content();
 
         // Assert
-        $this->assertInstanceOf(Collection::class, $content);
+        $this->assertEquals([1, 2, 3, 4, 5], $content);
     }
 }

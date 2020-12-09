@@ -16,8 +16,8 @@ class CollectionInputAdapter implements Input
         $this->collection = $collection;
     }
 
-    public function content(): Collection
+    public function content(): array
     {
-        return $this->collection;
+        return $this->collection->toArray();
     }
 }

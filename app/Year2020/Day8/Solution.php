@@ -31,26 +31,21 @@ class Solution implements SolutionContract
 
     public function second(): Answer
     {
-        $accumulator = 0;
+        $answer = 0;
 
         /** @var InstructionContract $instruction */
         foreach ($this->instructions as $index => $instruction) {
             $instructionList = new InstructionList($this->instructions->toArray());
-
-            if ('jmp' === $instruction->operation()) {
-                $instructionList->replace($index, new Instruction('nop '.$instruction->argument()));
-            } elseif ('nop' === $instruction->operation()) {
-                $instructionList->replace($index, new Instruction('jmp '.$instruction->argument()));
-            }
+            $instructionList->replace($index, new FlippedInstruction($instruction));
 
             $program = new Program($instructionList);
-            $accumulator = $program->run();
+            $answer = $program->run();
 
             if ($program->terminated()) {
                 break;
             }
         }
 
-        return new IntegerAnswer($accumulator);
+        return new IntegerAnswer($answer);
     }
 }
