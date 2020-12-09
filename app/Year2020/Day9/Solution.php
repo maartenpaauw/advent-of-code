@@ -3,7 +3,7 @@
 namespace App\Year2020\Day9;
 
 use App\Puzzle\Answer\Answer;
-use App\Puzzle\Answer\StringAnswer;
+use App\Puzzle\Answer\IntegerAnswer;
 use App\Puzzle\Input\Input;
 use App\Puzzle\Solution\SolutionContract;
 
@@ -14,25 +14,33 @@ class Solution implements SolutionContract
      */
     private $XMAS;
 
+    /**
+     * @var ContiguousSets
+     */
+    private $contiguousSets;
+
     public function __construct(Input $input, int $length = 25)
     {
         $this->XMAS = new XMAS($input->content(), $length);
+        $this->contiguousSets = new ContiguousSets($input->content());
     }
 
     public function first(): Answer
     {
-        do {
-            $preamble = $this->XMAS->preamble();
-            $current = $this->XMAS->current();
+        $invalidNumber = new InvalidNumber($this->XMAS);
 
-            $this->XMAS->next();
-        } while ($this->XMAS->valid() && (new PreambleSpecification($preamble))->isSatisfiedBy($current));
-
-        return new StringAnswer($current);
+        return new IntegerAnswer($invalidNumber->toInteger());
     }
 
     public function second(): Answer
     {
-        return new StringAnswer('—');
+        $invalidNumber = new InvalidNumber($this->XMAS);
+
+        do {
+            $contiguousSet = $this->contiguousSets->current();
+            $this->contiguousSets->next();
+        } while ($this->contiguousSets->valid() && $contiguousSet->sum() !== $invalidNumber->toInteger());
+
+        return new IntegerAnswer((new EncryptionWeakness($contiguousSet))->toInteger());
     }
 }
