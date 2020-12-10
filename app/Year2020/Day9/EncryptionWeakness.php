@@ -5,23 +5,23 @@ namespace App\Year2020\Day9;
 class EncryptionWeakness
 {
     /**
-     * @var ContiguousSet
+     * @var ContiguousRange
      */
-    private $set;
+    private $range;
 
-    public function __construct(ContiguousSet $set)
+    public function __construct(ContiguousRange $range)
     {
-        $this->set = $set;
+        $this->range = $range;
     }
 
     private function smallest(): int
     {
-        return min(...$this->set->toArray());
+        return min(...$this->range->toArray());
     }
 
     private function largest(): int
     {
-        return max(...$this->set->toArray());
+        return max(...$this->range->toArray());
     }
 
     public function toInteger(): int

@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Year2020\Day9;
 
-use App\Year2020\Day9\ContiguousSet;
+use App\Year2020\Day9\ContiguousRange;
 use App\Year2020\Day9\EncryptionWeakness;
 use Tests\TestCase;
 
@@ -13,7 +13,7 @@ class EncryptionWeaknessTest extends TestCase
     {
         // Arrange
         $encryptionWeakness = new EncryptionWeakness(
-            new ContiguousSet([15, 25, 47, 40])
+            new ContiguousRange([15, 25, 47, 40])
         );
 
         // Act

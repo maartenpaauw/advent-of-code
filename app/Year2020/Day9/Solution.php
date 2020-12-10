@@ -12,7 +12,7 @@ class Solution implements SolutionContract
     /**
      * @var XMAS
      */
-    private $XMAS;
+    private $xmas;
 
     /**
      * @var ContiguousSets
@@ -21,26 +21,26 @@ class Solution implements SolutionContract
 
     public function __construct(Input $input, int $length = 25)
     {
-        $this->XMAS = new XMAS($input->content(), $length);
+        $this->xmas = new XMAS($input->content(), $length);
         $this->contiguousSets = new ContiguousSets($input->content());
     }
 
     public function first(): Answer
     {
-        $invalidNumber = new InvalidNumber($this->XMAS);
+        $invalidNumber = new InvalidNumber($this->xmas);
 
         return new IntegerAnswer($invalidNumber->toInteger());
     }
 
     public function second(): Answer
     {
-        $invalidNumber = new InvalidNumber($this->XMAS);
+        $invalidNumber = new InvalidNumber($this->xmas);
 
         do {
-            $contiguousSet = $this->contiguousSets->current();
+            $contiguousRange = $this->contiguousSets->current();
             $this->contiguousSets->next();
-        } while ($this->contiguousSets->valid() && $contiguousSet->sum() !== $invalidNumber->toInteger());
+        } while ($this->contiguousSets->valid() && $contiguousRange->sum() !== $invalidNumber->toInteger());
 
-        return new IntegerAnswer((new EncryptionWeakness($contiguousSet))->toInteger());
+        return new IntegerAnswer((new EncryptionWeakness($contiguousRange))->toInteger());
     }
 }

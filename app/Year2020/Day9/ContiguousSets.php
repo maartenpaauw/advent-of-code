@@ -28,9 +28,9 @@ class ContiguousSets implements Iterator
         $this->size = 2;
     }
 
-    public function current(): ContiguousSet
+    public function current(): ContiguousRange
     {
-        return new ContiguousSet(array_slice(
+        return new ContiguousRange(array_slice(
             $this->data,
             $this->position,
             $this->size

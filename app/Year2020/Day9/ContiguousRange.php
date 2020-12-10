@@ -2,7 +2,7 @@
 
 namespace App\Year2020\Day9;
 
-class ContiguousSet
+class ContiguousRange
 {
     /**
      * @var array
