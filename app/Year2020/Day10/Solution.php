@@ -40,6 +40,16 @@ class Solution implements SolutionContract
 
     public function second(): Answer
     {
-        return new StringAnswer('—');
+        $ways = [1];
+
+        foreach ($this->adapterList as $output) {
+            $first = isset($ways[$output->rating() - 1]) ? $ways[$output->rating() - 1] : 0;
+            $second = isset($ways[$output->rating() - 2]) ? $ways[$output->rating() - 2] : 0;
+            $third = isset($ways[$output->rating() - 3]) ? $ways[$output->rating() - 3] : 0;
+
+            $ways[$output->rating()] = array_sum([$first, $second, $third]);
+        }
+
+        return new StringAnswer(max($ways));
     }
 }

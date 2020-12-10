@@ -37,6 +37,7 @@ class SolutionTest extends TestCase
 
         // Assert
         $this->assertEquals('35', $first);
+        $this->assertEquals('8', $second);
     }
 
     /** @test */
@@ -87,5 +88,6 @@ class SolutionTest extends TestCase
 
         // Assert
         $this->assertEquals('220', $first);
+        $this->assertEquals('19208', $second);
     }
 }
