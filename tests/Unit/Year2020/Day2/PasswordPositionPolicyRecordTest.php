@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Year2020\Day2;
 
-use App\Year2020\Day2\PasswordContract;
 use App\Year2020\Day2\PasswordAmountPolicyRecord;
+use App\Year2020\Day2\PasswordContract;
 use App\Year2020\Day2\PasswordPositionPolicyRecord;
 use App\Year2020\Day2\PositionPolicy;
 use Tests\TestCase;

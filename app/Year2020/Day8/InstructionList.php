@@ -31,6 +31,7 @@ class InstructionList implements Iterator
     {
         if ('jmp' === $this->current()->operation()) {
             $this->position += $this->current()->argument();
+
             return;
         }
 

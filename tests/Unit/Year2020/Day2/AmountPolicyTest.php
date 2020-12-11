@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Year2020\Day2;
 
-use App\Year2020\Day2\Password;
 use App\Year2020\Day2\AmountPolicy;
+use App\Year2020\Day2\Password;
 use Tests\TestCase;
 
 class AmountPolicyTest extends TestCase

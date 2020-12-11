@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Year2020\Day4\Specifications;
 
-use App\Year2020\Day4\Specifications\BasicPassportSpecification;
 use App\Year2020\Day4\Passport;
+use App\Year2020\Day4\Specifications\BasicPassportSpecification;
 use Illuminate\Support\Collection;
 use Tests\TestCase;
 

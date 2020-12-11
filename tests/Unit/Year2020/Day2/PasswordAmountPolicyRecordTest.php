@@ -3,8 +3,8 @@
 namespace Tests\Unit\Year2020\Day2;
 
 use App\Year2020\Day2\AmountPolicy;
-use App\Year2020\Day2\PasswordContract;
 use App\Year2020\Day2\PasswordAmountPolicyRecord;
+use App\Year2020\Day2\PasswordContract;
 use Tests\TestCase;
 
 class PasswordAmountPolicyRecordTest extends TestCase

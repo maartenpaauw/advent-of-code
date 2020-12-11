@@ -3,7 +3,6 @@
 namespace Tests\Unit\Puzzle\Solution;
 
 use App\Puzzle\Identification\Identification;
-use App\Puzzle\Input\StringInput;
 use App\Puzzle\Solution\FakeSolution;
 use App\Puzzle\Solution\NoSolutionAvailableException;
 use App\Puzzle\Solution\SolutionList;

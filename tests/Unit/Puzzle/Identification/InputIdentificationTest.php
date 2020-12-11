@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Puzzle\Identification;
 
-use App\Puzzle\Identification\InputIdentification;
 use App\Puzzle\Identification\Identification;
+use App\Puzzle\Identification\InputIdentification;
 use Tests\TestCase;
 
 class InputIdentificationTest extends TestCase

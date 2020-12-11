@@ -3,7 +3,6 @@
 namespace Tests\Unit\Puzzle\Input;
 
 use App\Puzzle\Input\FileInput;
-use App\Puzzle\Input\StringInput;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 

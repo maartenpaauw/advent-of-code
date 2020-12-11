@@ -2,7 +2,6 @@
 
 namespace Tests\Unit\Puzzle;
 
-use App\Puzzle\Input\StringInput;
 use App\Puzzle\Puzzle;
 use App\Puzzle\Solution\FakeSolution;
 use App\Puzzle\TablePuzzle;
