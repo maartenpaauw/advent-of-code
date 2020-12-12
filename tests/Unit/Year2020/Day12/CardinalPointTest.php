@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Year2020\Day12;
 
-use App\Year2020\Day12\CardinalPoint;
+use App\Year2020\Day12\Meteorology\CardinalPoint;
 use Tests\TestCase;
 
 class CardinalPointTest extends TestCase

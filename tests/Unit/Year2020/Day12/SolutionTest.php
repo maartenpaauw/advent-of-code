@@ -25,10 +25,10 @@ class SolutionTest extends TestCase
 
         // Act
         $first = $solution->first();
-//        $second = $solution->second();
+        $second = $solution->second();
 
         // Assert
         $this->assertEquals('25', $first);
-//        $this->assertEquals('286', $second);
+        $this->assertEquals('286', $second);
     }
 }

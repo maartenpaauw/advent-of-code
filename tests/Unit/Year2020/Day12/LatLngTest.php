@@ -2,7 +2,7 @@
 
 namespace Tests\Unit\Year2020\Day12;
 
-use App\Year2020\Day12\LatLng;
+use App\Year2020\Day12\Geo\LatLng;
 use Tests\TestCase;
 
 class LatLngTest extends TestCase

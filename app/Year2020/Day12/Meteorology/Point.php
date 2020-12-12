@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Year2020\Day12;
+namespace App\Year2020\Day12\Meteorology;
 
 interface Point
 {
