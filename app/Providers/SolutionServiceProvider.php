@@ -82,6 +82,11 @@ class SolutionServiceProvider extends ServiceProvider
                 new \App\Year2020\Day13\Solution(new FileInput(new InputIdentification($identification)))
             );
 
+            $solutionList->add(
+                $identification = new Identification(2020, 14),
+                new \App\Year2020\Day14\Solution(new ListInput(new FileInput(new InputIdentification($identification))))
+            );
+
             return $solutionList;
         });
     }
