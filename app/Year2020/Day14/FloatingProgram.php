@@ -2,7 +2,7 @@
 
 namespace App\Year2020\Day14;
 
-class Program implements ProgramContract
+class FloatingProgram implements ProgramContract
 {
     /**
      * @var Instructions
@@ -10,14 +10,14 @@ class Program implements ProgramContract
     private $instructions;
 
     /**
-     * @var BitMask
-     */
-    private $bitMask;
-
-    /**
      * @var Memory
      */
     private $memory;
+
+    /**
+     * @var FloatingBitMask
+     */
+    private $bitMask;
 
     public function __construct(Instructions $instructions, Memory $memory)
     {
@@ -41,8 +41,8 @@ class Program implements ProgramContract
 
     public function save(Binary $address, Binary $value): void
     {
-        $value = $this->bitMask->apply($value);
-
-        $this->memory->set($address, $value);
+        foreach ($this->bitMask->apply($address) as $item) {
+            $this->memory->set($item, $value);
+        }
     }
 }

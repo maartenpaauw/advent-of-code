@@ -16,10 +16,16 @@ class Instructions implements Iterator
      */
     private $position;
 
-    public function __construct(array $instructions)
+    /**
+     * @var bool
+     */
+    private $floats;
+
+    public function __construct(array $instructions, bool $floats = false)
     {
         $this->instructions = $instructions;
         $this->position = 0;
+        $this->floats = $floats;
     }
 
     public function current(): Instruction
@@ -29,7 +35,7 @@ class Instructions implements Iterator
         preg_match('/^(?P<instruction>mask|mem)/', $instruction, $matches);
 
         if ('mask' === $matches['instruction']) {
-            return new MaskInstruction($instruction);
+            return new MaskInstruction($instruction, $this->floats);
         } else {
             return new MemoryInstruction($instruction);
         }

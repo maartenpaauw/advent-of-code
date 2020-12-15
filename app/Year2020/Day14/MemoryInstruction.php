@@ -14,7 +14,7 @@ class MemoryInstruction implements Instruction
         $this->instruction = $instruction;
     }
 
-    public function execute(Program $program): void
+    public function execute(ProgramContract $program): void
     {
         preg_match('/^mem\[(?P<address>\d+)] = (?<value>\d+)$/', $this->instruction, $matches);
 

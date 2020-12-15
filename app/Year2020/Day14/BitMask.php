@@ -2,7 +2,7 @@
 
 namespace App\Year2020\Day14;
 
-class BitMask
+class BitMask implements BitMaskContract
 {
     /**
      * @var Binary

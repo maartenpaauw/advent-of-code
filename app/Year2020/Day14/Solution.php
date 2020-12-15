@@ -33,6 +33,12 @@ class Solution implements SolutionContract
 
     public function second(): Answer
     {
-        return new StringAnswer('—');
+        $instructions = new Instructions($this->input->content(), true);
+        $memory = new Memory();
+        $floatingProgram = new FloatingProgram($instructions, $memory);
+
+        $binary = $floatingProgram->run();
+
+        return new StringAnswer(bindec($binary));
     }
 }

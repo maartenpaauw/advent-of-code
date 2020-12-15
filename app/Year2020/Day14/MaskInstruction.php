@@ -9,15 +9,22 @@ class MaskInstruction implements Instruction
      */
     private $instruction;
 
-    public function __construct(string $instruction)
+    /**
+     * @var bool
+     */
+    private $floats;
+
+
+    public function __construct(string $instruction, bool $floats = false)
     {
         $this->instruction = $instruction;
+        $this->floats = $floats;
     }
 
-    public function execute(Program $program): void
+    public function execute(ProgramContract $program): void
     {
         preg_match('/^mask = (?P<mask>[01X]+)$/', $this->instruction, $matches);
-        $bitMask = new BitMask($matches['mask']);
+        $bitMask = $this->floats ? new FloatingBitMask($matches['mask']) : new BitMask($matches['mask']);
 
         $program->apply($bitMask);
     }
